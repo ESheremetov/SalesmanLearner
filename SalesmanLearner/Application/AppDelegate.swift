@@ -15,6 +15,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let values: [[Double]] = [
+            [-1, 6, 3, 5, 4, 2],
+            [4, -1, 3, 4, 2, 3],
+            [5, 4, -1, 4, 3, 2],
+            [2, 3, 4, -1, 5, 6],
+            [4, 6, 6, 7, -1, 5],
+            [3, 2, 4, 3, 5, -1]
+        ]
+        
+        let matrix = Matrix<Double, Int>(values: values)
+        for i in matrix.rowIndexes {
+            matrix[i][i] = Double.infinity
+        }
+
+        let solver = SolverTree()
+
+        // INITIAL
+        let initialPrepare = solver.prepare(matrix: matrix)
+        let initialNode = SolverTreeNode(point: (0, 0), value: initialPrepare.1, type: .initial, matrix: initialPrepare.matrix)
+        print("PREPARED MATRIX:\n\(initialPrepare.matrix)\n")
+        print("VALUE: \(initialPrepare.value)\n")
+
+        // CALC NEXT POINT
+        print("\nCALC FIRST")
+        let zeroFirst = solver.getMaxZero(from: initialPrepare.matrix)
+        print("CHOSEN POINT: \(zeroFirst.0) with value: \(zeroFirst.1)\n")
+
+        let includeNodeFirst = solver.getIncludePoint(point: zeroFirst.0, initialNode)
+        let excludeNodeFirst = solver.getExcludePoint(point: zeroFirst.0, value: zeroFirst.1, initialNode)
+
+        print("INCLUDE: ")
+        print(includeNodeFirst.matrix.info())
+        print("\n")
+
+        // CALC NEXT POINT (INCLUDE CHOSEN)
+        print("\nCALC SECOND")
+        let zeroSecond = solver.getMaxZero(from: includeNodeFirst.matrix)
+        print("\nCHOSEN POINT: \(zeroSecond.0) with value: \(zeroSecond.1)\n")
+
+        let includeNodeSecond = solver.getIncludePoint(point: zeroSecond.0, includeNodeFirst)
+        let excludeNodeSecond = solver.getExcludePoint(point: zeroSecond.0, value: zeroSecond.1, includeNodeFirst)
+
+        print("INCLUDE: ")
+        print(includeNodeSecond.matrix.info())
+        print("\n")
+
+        // CALC NEXT POINT (INCLUDE CHOSEN)
+        print("\nCALC THIRD")
+        let zeroThird = solver.getMaxZero(from: includeNodeSecond.matrix)
+        print("\nCHOSEN POINT: \(zeroThird.0) with value: \(zeroThird.1)\n")
+
+        let includeNodeThird = solver.getIncludePoint(point: zeroThird.0, includeNodeSecond)
+        let excludeNodeThird = solver.getExcludePoint(point: zeroThird.0, value: zeroThird.1, includeNodeSecond)
+
+        print("INCLUDE: ")
+        print(includeNodeThird.matrix.info())
+        print("\n")
+
+        // CALC NEXT POINT (INCLUDE CHOSEN)
+        print("\nCALC FOURTH")
+        let zeroFourth = solver.getMaxZero(from: includeNodeThird.matrix)
+        print("\nCHOSEN POINT: \(zeroFourth.0) with value: \(zeroFourth.1)\n")
+
+        let includeNodeFourth = solver.getIncludePoint(point: zeroFourth.0, includeNodeThird)
+        let excludeNodeFourth = solver.getExcludePoint(point: zeroFourth.0, value: zeroFourth.1, includeNodeThird)
+
+        print("INCLUDE: ")
+        print(includeNodeFourth.matrix.info())
+        print("\n")
+
+        print(solver.points)
+
         return true
     }
 

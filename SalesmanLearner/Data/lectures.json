@@ -1,0 +1,74 @@
+[
+    {
+        "id": 0,
+        "title": "Введение",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": "<nl><i>image_id=Intro.image.0</i><nl>Одна из самых известных задач **комбинаторной оптимизации**, заключающаяся в поиске самого выгодного маршрута, проходящего через указанные города хотя бы по одному разу с последующим возвратом в исходный город. В условиях задачи указываются критерий выгодности маршрута *(кратчайший, самый дешёвый, совокупный критерий и тому подобное)* и соответствующие матрицы расстояний, стоимости и тому подобного. Как правило, указывается, что маршрут должен проходить через каждый город только один раз — в таком случае выбор осуществляется среди гамильтоновых циклов.<nl>Оптимизационная постановка задачи относится к классу NP-трудных задач, впрочем, как и большинство её частных случаев. Версия *«decision problem»* *(то есть такая, в которой ставится вопрос, существует ли маршрут не длиннее, чем заданное значение k)* относится к классу NP-полных задач. Задача коммивояжёра относится к числу трансвычислительных: уже при относительно небольшом числе городов *(66 и более)* она не может быть решена методом перебора вариантов никакими теоретически мыслимыми компьютерами за время, меньшее нескольких миллиардов лет."
+    },
+    {
+        "id": 1,
+        "title": "Задача коммивояжера (ЗК)",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 2,
+        "title": "Методы решения ЗК",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 3,
+        "title": "Полный перебор",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 4,
+        "title": "Случайный полный перебор",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 5,
+        "title": "Метод ветвей и границ",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 6,
+        "title": "Метод иммитации отжига",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 7,
+        "title": "Out of stack",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 8,
+        "title": "Pomogiti",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 9,
+        "title": "Ustal dobavliat",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 10,
+        "title": "Vse eti kartinki",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    },
+    {
+        "id": 11,
+        "title": "No chto podelat",
+        "short": "Some short description befor a long text, that user can read in lectures detail.",
+        "long": ""
+    }
+]
